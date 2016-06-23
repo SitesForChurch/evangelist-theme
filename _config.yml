@@ -1,0 +1,41 @@
+title: Chis Kitchens, Pastor and Evangelist
+email: "pastorryanhaydenl@gmail.com"
+description: > # this means to ignore newlines until "baseurl:"
+  Chris Kitchens is the pastor of Corinth Missionary Baptist Church in Moulton, AL.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://whatawordisthis.pubstorm.site/" # the base hostname & protocol for your site | Switch to "http://biblebaptistmattoon.org/" Before running Glynn.  Afterwards change it back to http://localhost:4000/
+twitter_username: jekyllrb
+github_username:  jekyll
+default_header_image: "assets/default_header.jpg"
+default_sermon_image: "assets/default_header.jpg"
+default_blog_image: "assets/default_header.jpg"
+default_about_image: "assets/default_header.jpg"
+default_calendar_image: "assets/calendar_default.jpg"
+
+# Build settings
+markdown: kramdown
+ 
+# Exclude
+exclude:
+  - package.json
+  - node_modules
+  - gulpfile.js 
+  - bower_components
+
+page_gen:
+  - data: 'series'
+    template: 'series'
+    name: 'title'
+    dir: 'series'
+  - data: 'sermons'
+    template: 'sermon'
+    name: 'title'
+    dir: 'sermons'
+  - data: 'blog'
+    template: 'blog-entry'
+    name: 'title'
+    dir: 'blog-posts'
+  - data: 'abouts'
+    template: 'aboutpage'
+    name: 'title'
+    dir: 'about-us'
