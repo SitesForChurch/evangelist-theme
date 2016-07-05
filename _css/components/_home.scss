@@ -72,4 +72,7 @@
 h3.latest-article {
     text-align: center;
     padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed $primary-color;
+    margin-bottom: 20px;
 }

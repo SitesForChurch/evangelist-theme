@@ -13,7 +13,7 @@ background-color: #fff;
         width: 100%;
         padding: 40px;
         @include breakpoint(medium){
-            @include grid-column(4);
+            @include grid-column(5);
         }
     }
     .footer-twitter {
@@ -36,7 +36,7 @@ background-color: #fff;
         padding: 40px;
         color: $medium-gray;
         @include breakpoint(medium){
-            @include grid-column(4);
+            @include grid-column(3);
         }
     }
     .footer-menu {

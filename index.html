@@ -8,53 +8,53 @@ layout: default
       </div>
     </div>
     <div class="latest-sermons">
+    
+
       <ul>
+      {% for item in site.data.sermons | limit: 4 %}
         <div class="sermon-teaser">
-          <div class="sermon-image"><img src="https://dl.airtable.com/6aTZYzJYSGCkOvRMXCKs_forthetruth.jpg">
+          {% if item.series_featured_image %}
+          {% for img in item.series_featured_image %}
+          <div class="sermon-image"><img src="{{img.url}}">
           </div>
+          {% endfor %}
+          {% else %}
+          <div class="sermon-image"><img src="{{site.default_sermon_image}}">
+          </div>
+          {% endif %}
           <div class="sermon-text">   
-            <h5><a href="http://pastorryanhayden.github.io/kitchens-site/sermons/Deceivers.html">Deceivers</a></h5>
+            <h5><a href="{{ item.title | datapage_url: 'sermons' | prepend: site.baseurl | prepend: site.url }}">{{item.title}}</a></h5>
           </div>
         </div>
-        <div class="sermon-teaser">
-          <div class="sermon-image"><img src="https://dl.airtable.com/3kDt1m7CSLeP8K0Bhvos_camera.jpg">
-          </div>
-          <div class="sermon-text">   
-            <h5><a href="http://pastorryanhayden.github.io/kitchens-site/sermons/A-Bitter-Providence-and-A-Bitter-Person.html">A Bitter Providence and A Bitter Person</a></h5>
-          </div>
-        </div>
-        <div class="sermon-teaser">
-          <div class="sermon-image"><img src="https://dl.airtable.com/3kDt1m7CSLeP8K0Bhvos_camera.jpg">
-          </div>
-          <div class="sermon-text">   
-            <h5><a href="http://pastorryanhayden.github.io/kitchens-site/sermons/Have-You-Kissed-or-Are-You-Cleaving.html">Have You Kissed or Are You Cleaving?</a></h5>
-          </div>
-        </div>
-        <div class="sermon-teaser">
-          <div class="sermon-image"><img src="https://dl.airtable.com/3kDt1m7CSLeP8K0Bhvos_camera.jpg">
-          </div>
-          <div class="sermon-text">   
-            <h5><a href="http://pastorryanhayden.github.io/kitchens-site/sermons/Im-in-a-Mess-in-Moab.html">I'm in a Mess in Moab</a></h5>
-          </div>
-        </div>
+      {% endfor %}
       </ul>
+      
     </div>
     <div class="wrapper">
-      <h3 class="latest-article">Latest Articles:</h3>
-      <div class="blog-listings">
-        <div class="blog-entry"><img src="https://dl.airtable.com/aMyyVxj7SNuOqhaHqfH7_whataword4.png" alt="entry-image">
-          <div class="entry-text">
+    <h3 class="latest-article">Recent Articles:</h3>
+    <div class="blog-listings home">
+            {% for post in site.data.blog %}
+        <div class="blog-entry">
+            {% if post.featured_image %}
+                {% for img in post.featured_image %}
+            <img src="{{img.url}}" alt="{{post.title}}" class="entry-image">
+                {% endfor %}
+            {% else %}
+            <img src="{{site.default_blog_image}}" alt="" class="entry-image">
+            {% endif %}
+            <div class="entry-text">
             <div class="entry-header">
-              <h3> <a href="#">Welcome Back to whatawordisthis.com</a></h3>
-              <p class="description"> <strong>Posted On:</strong>June 3,2016 •<strong>Author:</strong>Pastor Chris Kitchens •  <strong>Category:</strong>News
-              </p>
-            </div>
-            <div class="entry-description"><p>Though we did not allow the domain name to expire, <a href="whatawordisthis.com">our ministry website</a> has been lying dormant for some time now and, frankly, I am coming to grips with the fact that I have vas&hellip;</p>
-<a href="http://pastorryanhayden.github.io/kitchens-site/posts/Welcome-Back-to-whatawordisthiscom.html" class="button">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                <h3><a href="{{ post.title | datapage_url: 'blog-posts' | prepend: site.baseurl | prepend: site.url }}">{{post.title}}</a></h3>
+                <p class="description"><strong>Posted On:</strong> {{post.date_added| date: "%B %-d, %Y" }} • <strong>Author:</strong> {{post.author_name}} • <strong>Category:</strong> {{post.categories}} </p>
+            </div><!--/entry-text-->
+            <div class="entry-description">
+                {{post.body_content | truncate: 75 }}
+                <a href="{{ post.title | datapage_url: 'blog-posts' | prepend: site.baseurl | prepend: site.url }}" class="button">Read More</a>
+            </div><!--/entry-description-->
+            </div><!//entry-text-->
+        </div><!--/blog-entry-->
+            {% endfor %}
+    </div><!--/blog-listings-->
+    </div><!--/wrapper-->
   </main>
   
