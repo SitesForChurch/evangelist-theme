@@ -59,7 +59,7 @@ var homeseriesJsonTest = [];
         maxRecords: 100,
       //sort
         sort: [{field: "title", direction: "asc"}],
-        filterByFormula: "TRUE(published)",
+        filterByFormula: "published",
       //Formula to how to get data
       // help https://support.airtable.com/hc/en-us/articles/203255215-Formula-Field-Reference
 
