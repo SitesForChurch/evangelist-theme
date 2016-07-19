@@ -18,6 +18,6 @@ echo "Build Jekyll";
 jekyll build
 echo "Compile SASS";
 node-sass _css/app.scss _site/assets/css/app.css;
-echo "Sync";
-osascript upload.scpt;
-echo -e '\n Complete all scripts';
+# echo "Sync";
+# osascript upload.scpt;
+# echo -e '\n Complete all scripts';
